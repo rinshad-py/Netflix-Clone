@@ -13,7 +13,6 @@ __pycache__/
 .env
 
 # Static and media files
-/static/
 /media/
 
 # IDE-specific files
