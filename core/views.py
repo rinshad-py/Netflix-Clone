@@ -36,6 +36,13 @@ def search(request):
         return redirect("/")
 
 @login_required(login_url="login")
+def genre(request, pk):
+    movie_genre = pk
+    movies = Movie.objects.filter(genre=movie_genre)
+    context = {"movies": movies, "movie_genre": movie_genre}
+    return render(request, "genre.html", context)
+
+@login_required(login_url="login")
 def my_list(request):
     movie_list = MovieList.objects.filter(owner_user=request.user)
     user_movie_list = [movie.movie for movie in movie_list]
