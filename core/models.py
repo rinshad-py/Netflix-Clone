@@ -1,9 +1,9 @@
 from django.db import models
 import uuid
+from django.conf import settings
 
 # Create your models here.
 class Movie(models.Model):
-
     GENRE_CHOICES = [
         ('action', 'Action'),
         ('comedy', 'Comedy'),
@@ -13,7 +13,6 @@ class Movie(models.Model):
         ('science_fiction', 'Science Fiction'),
         ('fantasy', 'Fantasy'),
     ]
-
     uu_id = models.UUIDField(default=uuid.uuid4)
     title = models.CharField(max_length=255)
     description = models.TextField()
@@ -28,4 +27,9 @@ class Movie(models.Model):
     def __str__(self) -> str:
         return self.title
 
-
+class MovieList(models.Model):
+    owner_user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)

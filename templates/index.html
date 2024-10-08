@@ -79,7 +79,7 @@
                 data-image-card-url="{{ movie.image_card.url }}"
                 data-image-cover-url="{{ movie.image_cover.url }}"
                 data-video-url="/movie/{{ movie.uu_id }}"
-                
+
                 style="background-image: url('{{movie.image_card.url}}'); background-size: cover; background-position: center;">
             </div>
             {% endfor %}
@@ -162,7 +162,7 @@
             var movieID = modal.querySelector('.modal-content a').href;
 
             $.ajax({
-                url: "",
+                url: "{% url 'add-to-list' %}",
                 type: "POST",
                 data: {
                     movie_id: movieID,
