@@ -46,7 +46,7 @@
                 <button class="bg-red-600 text-white p-2 rounded hover:bg-red-500">Search</button>
             </form>
             <div class="relative">
-                <a href="#" class="block p-2">Welcome, {{user.username}}</a>
+                <a href="#" class="block p-2">Welcome, {{user.username | capfirst}}</a>
                 <a href="/logout" class="block p-2">Logout</a>
             </div>
         </div>
@@ -58,7 +58,7 @@
     
         <div align="center">
             <h2 class="text-xl mb-5">
-                Search Result for '{{search_term}}'
+                Search Result for "{{search_term | capfirst}}"
             </h2>
         </div>
         <div class="flex space-x-5 overflow-x-auto">
