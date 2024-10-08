@@ -30,7 +30,7 @@ body, html {
     max-width: 450px;
     margin: auto;
     position: relative;
-    top: 50%;
+    top: 45.5%;
     transform: translateY(-50%);
     padding: 60px 68px 40px;
     background-color: rgba(0, 0, 0, 0.9);
@@ -53,10 +53,14 @@ body, html {
     background: #333;
     border: 0;
     color: #fff;
-    height: 50px;
+    /* height: 50px;
     line-height: 50px;
     padding: 16px 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
+    height: 40px;
+    line-height: 40px;
+    padding: 12px 12px;
+    margin-bottom: 15px;
 }
 
 .signup-container .signup-btn {
