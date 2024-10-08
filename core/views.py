@@ -11,7 +11,9 @@ from django.http import JsonResponse
 @login_required(login_url="login")
 def index(request):
     movies = Movie.objects.all()
-    context = { 'movies': movies, }
+    featured_movie = movies[len(movies)-3]
+
+    context = { 'movies': movies, "featured_movie": featured_movie, }
     return render(request, 'index.html', context)
 
 @login_required(login_url="login")
