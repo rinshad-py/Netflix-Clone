@@ -23,9 +23,16 @@ def movie(request, pk):
 
     return render(request, 'movie.html', context)
 
+@login_required(login_url="login")
 def my_list(request):
-    pass
+    movie_list = MovieList.objects.filter(owner_user=request.user)
+    user_movie_list = [movie.movie for movie in movie_list]
 
+    context = { "movies": user_movie_list, }
+    
+    return render(request, "my_list.html", context)
+
+@login_required(login_url="login")
 def add_to_list(request):
     if request.method == "POST":
         movie_url_id = request.POST.get("movie_id")
